@@ -147,6 +147,7 @@ EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
 EMAIL_HOST_USER = 'mpalavecino@proyectoweb.website'
 EMAIL_HOST_PASSWORD = 'Mariano2026@'
+EMAIL_TIMEOUT = 10
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'panel'
