@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'viajes/css/viajes.css' %}">
+{% endblock %}
+{% block content %}
+<div class="login">
+    <h4>Iniciar Sesión</h4>
+    <form method="POST" class="form-auth">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary" style="cursor: pointer;">Ingresar</button>
+    </form>
+    <div class="d-flex justify-content-end">
+        <p style="margin-top: 15px; width: 100%">¿No tienes cuenta? <a href="{% url 'registro' %}">Regístrate aquí</a>
+        </p>
+    </div>
+
+</div>
+{% endblock %}

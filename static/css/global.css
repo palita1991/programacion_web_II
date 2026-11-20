@@ -1,0 +1,79 @@
+:root {
+    --violeta-claro: #624ebc;
+    --violeta-oscuro: #1d1636;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+input {
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar img {
+    max-width: 10rem;
+}
+
+.navbar-brand {
+    color: var(--violeta-claro) !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--violeta-oscuro);
+    color: white;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+footer img {
+    max-width: 3rem;
+}
+
+/* BOTONES */
+
+.btn-primary, .btn-logout {
+    background-color: var(--violeta-claro);
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+    border-radius: 5px;
+    border: 1px solid var(--violeta-claro);
+}
+
+.btn-primary, .btn-outline-secondary {
+    padding: 10px 30px;
+}
+
+.btn-primary:hover, .btn-logout:hover {
+    background-color: var(--violeta-oscuro);
+    color: white;
+    border: 1px solid var(--violeta-oscuro);
+}
+
+.btn-outline-secondary {
+    border: 1px solid var(--violeta-claro);
+    font-weight: 500;
+    color: var(--violeta-claro);
+}
+
+
+.btn-outline-secondary:hover {
+    background-color: var(--violeta-claro);
+    color: white;
+}

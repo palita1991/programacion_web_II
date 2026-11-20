@@ -1,0 +1,9 @@
+services
+  - type: web
+    name: simuladorTuristico
+    env: python
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+    startCommand: "gunicorn simulador_turistico.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: simulador_turistico.settings

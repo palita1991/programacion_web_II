@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'viajes/css/viajes.css' %}">
+{% endblock %}
+{% block content %}
+<div class="panel">
+    <div class="title-panel">
+        <h2>Solicitudes de paquetes</h2>
+    </div>
+    <hr>
+    {% if messages %}
+    <div class="mt-3">
+        {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show"
+             role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="container-table-panel">
+        <div class="table-responsive mt-4">
+            <table class="table table-hover table-striped align-middle border">
+                <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Email</th>
+                    <th>Destino</th>
+                    <th>Fechas</th>
+                    <th>Detalles</th>
+                    <th>Costos</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for solicitud in solicitudes %}
+                <tr>
+                    <td><strong>#{{ solicitud.id }}</strong></td>
+                    <td>{{ solicitud.nombre }}</td>
+                    <td>{{ solicitud.email }}</td>
+                    <td>{{ solicitud.destino }}</td>
+                    <td>{{ solicitud.fecha_inicio|date:"d/m/Y" }} - {{ solicitud.fecha_fin|date:"d/m/Y" }}</td>
+                    <td class="small">
+                        Vuelo: {{ solicitud.vuelo }}<br>
+                        Alojamiento: {{ solicitud.alojamiento }}<br>
+                        Comida: {{ solicitud.comida }}<br>
+                        Equipaje: {{ solicitud.equipaje }}
+                    </td>
+                    <td class="small">
+                        Vuelo: ${{ solicitud.costo_vuelo }}<br>
+                        Alojamiento: ${{ solicitud.costo_alojamiento }}<br>
+                        Comida: ${{ solicitud.costo_comida }}<br>
+                        Equipaje: ${{ solicitud.costo_equipaje }}<br>
+                    </td>
+                    <td class="small">
+                        <strong>Total: ${{ solicitud.total_ars }}</strong><br>
+                        <span class="text-success">USD: ${{ solicitud.total_usd|floatformat:2 }}</span>
+                    </td>
+                    <td>
+                        <div class="d-flex gap-2">
+                            <a href="{% url 'editar_solicitud' solicitud.id %}"
+                               class="btn btn-sm btn-warning d-flex align-items-center justify-content-center"
+                               title="Editar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     viewBox="0 0 16 16">
+                                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                </svg>
+                            </a>
+                            <button type="button"
+                                    class="btn btn-sm btn-danger d-flex align-items-center justify-content-center"
+                                    data-bs-toggle="modal" data-bs-target="#modalEliminar{{ solicitud.id }}"
+                                    title="Borrar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="modal fade" id="modalEliminar{{ solicitud.id }}" tabindex="-1"
+                             aria-labelledby="modalLabel{{ solicitud.id }}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header text-dark">
+                                        <h5 class="modal-title" id="modalLabel{{ solicitud.id }}">Confirmar
+                                            eliminación</h5>
+                                        <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-start" style="white-space: normal;">
+                                        <p>¿Estás seguro que deseas eliminar la solicitud con destino a <strong>{{
+                                            solicitud.destino }}</strong>?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                            Cancelar
+                                        </button>
+                                        <a href="{% url 'eliminar_solicitud' solicitud.id %}" class="btn btn-primary">Sí,
+                                            eliminar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="text-center py-4 text-muted">No hay solicitudes registradas</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

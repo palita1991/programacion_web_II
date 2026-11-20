@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'viajes/css/viajes.css' %}">
+{% endblock %}
+{% block content %}
+<div style="max-width: 600px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+    <h2>Editar Solicitud #{{ solicitud.id }}</h2>
+    <hr>
+    <form method="POST" class="form-auth">
+        {% csrf_token %}
+        <div class="grid-form">
+            {{ form.as_p }}
+        </div>
+        <div class="d-flex gap-2 mt-4 justify-content-end">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{% url 'panel' %}" class="btn btn-outline-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,725 @@
+.btn-editar {
+    border: 1px solid #ccc;
+    color: var(--violeta-claro);
+    background: transparent;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-editar:hover {
+    border-color: var(--violeta-claro);
+    background: #f4f1ff;
+}
+
+.login, .registro {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid var(--violeta-claro);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login a, .registro a {
+    margin-top: 15px;
+    color: var(--violeta-claro);
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.perfil {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.panel {
+    padding: 2rem;
+}
+
+.panel .title-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel .container-table-panel {
+    margin-top: 30px;
+}
+
+/* FORMS */
+.form-auth {
+    width: 100%;
+}
+
+.form-auth p {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-auth label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-auth input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--violeta-claro);
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-auth input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(98, 78, 188, 0.4);
+}
+
+/* ENCABEZADO (HERO) */
+.hero {
+    background: url('../../viajes/img/header.png') center/cover;
+    padding: 120px 0;
+    display: flex;
+    align-items: center;
+    min-height: 450px;
+}
+
+.hero p {
+    font-weight: 600;
+}
+
+.container-hero {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container-hero h1 {
+    font-weight: 800;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.container-hero .lead {
+    color: #334155;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 0;
+        background-position: 70% center;
+    }
+
+    .container-hero {
+        padding: 0 20px;
+    }
+
+    .container-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .container-hero .lead {
+        font-size: 1.1rem;
+        max-width: 100%;
+    }
+
+    .navbar img {
+        max-width: 7rem;
+        max-height: 40px;
+    }
+}
+
+/* SECCIÓN: COMO FUNCIONA */
+.how-it-works-card {
+    border-radius: 12px !important;
+    border: 1px solid #f1f5f9 !important;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.how-it-works-card h6 {
+    color: #0a1128;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.how-it-works-card p {
+    color: #64748b !important;
+    line-height: 1.5;
+}
+
+.icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #f3f0ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a1128;
+}
+
+/* STEPPER (PASOS PARA CREAR PAQUETE)*/
+.stepper {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0 50px 0;
+    width: 100%;
+    position: relative;
+}
+
+.stepper::before {
+    content: '';
+    position: absolute;
+    top: 17px;
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background-color: #e9ecef;
+    z-index: 0;
+}
+
+.stepper::-webkit-scrollbar {
+    display: none;
+}
+
+.stepper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.step.active {
+    opacity: 1;
+    font-weight: 700;
+    color: var(--violeta-claro);
+}
+
+.step-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #dee2e6;
+    color: #495057;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.step-text {
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.9rem;
+}
+
+.step-check {
+    display: none;
+}
+
+.step-num {
+    display: block;
+}
+
+.step.active .step-circle {
+    background-color: var(--violeta-claro);
+    border-color: var(--violeta-claro);
+    color: white;
+}
+
+.step.active .step-text {
+    color: var(--violeta-claro);
+    font-weight: 700;
+}
+
+.step.completed .step-circle {
+    background-color: #d1e7dd;
+    border-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.step.completed .step-text {
+    color: #343a40;
+    font-weight: 600;
+}
+
+.step.completed .step-num {
+    display: none;
+}
+
+.step.completed .step-check {
+    display: block;
+}
+
+@media (max-width: 576px) {
+
+    .step-text {
+        font-size: 0.6rem;
+    }
+
+    .step-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+
+    .stepper::before {
+        top: 14px;
+    }
+
+    .step {
+        font-size: 0.65rem;
+        min-width: 50px;
+    }
+
+    .step-circle {
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
+    }
+}
+
+/* SECCIÓN: DESTINOS */
+.destino-card input[type="radio"] {
+    display: none;
+}
+
+.destino-card label {
+    border: 2px solid #eee;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    background: white;
+    text-align: center;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.destino-card input[type="radio"]:checked + label {
+    border-color: var(--violeta-claro);
+    box-shadow: 0 0 10px rgba(98, 78, 188, 0.2);
+}
+
+.destino-card .radio-custom {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.destino-card input[type="radio"]:checked + label .radio-custom {
+    border-color: var(--violeta-claro);
+}
+
+.destino-card input[type="radio"]:checked + label .radio-custom::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: var(--violeta-claro);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.destino-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.form-step h4 {
+    color: var(--violeta-oscuro);
+    font-weight: 700;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* SECCIÓN: VUELOS */
+.vuelo-card input[type="radio"] {
+    display: none;
+}
+
+.vuelo-card label {
+    border: 2px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    background: white;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    height: 100%;
+}
+
+.vuelo-card input[type="radio"]:checked + label {
+    border-color: var(--violeta-claro);
+    box-shadow: 0 0 10px rgba(98, 78, 188, 0.2);
+}
+
+.vuelo-card .radio-custom {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.vuelo-card input[type="radio"]:checked + label .radio-custom {
+    border-color: var(--violeta-claro);
+}
+
+.vuelo-card input[type="radio"]:checked + label .radio-custom::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: var(--violeta-claro);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.vuelo-badge {
+    background-color: #e6e0ff;
+    color: var(--violeta-claro);
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+/* SECCIÓN: ALOJAMIENTOS */
+.alojamiento-card input[type="radio"] {
+    display: none;
+}
+
+.alojamiento-card label {
+    border: 2px solid #eee;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    background: white;
+    text-align: center;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.alojamiento-card input[type="radio"]:checked + label {
+    border-color: var(--violeta-claro);
+    box-shadow: 0 0 10px rgba(98, 78, 188, 0.2);
+}
+
+.alojamiento-card .radio-custom {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.alojamiento-card input[type="radio"]:checked + label .radio-custom {
+    border-color: var(--violeta-claro);
+}
+
+.alojamiento-card input[type="radio"]:checked + label .radio-custom::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: var(--violeta-claro);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.alojamiento-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.precio-badge {
+    font-size: 0.85rem;
+    margin-top: auto;
+    padding: 8px 10px;
+    border-radius: 5px;
+    width: 100%;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.precio-monto {
+    color: var(--violeta-claro);
+    font-weight: 700;
+}
+
+.precio-detalle {
+    color: rgba(33, 37, 41, 0.75);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.alojamiento-card input[type="radio"]:checked + label .precio-badge {
+    background-color: #f4f1ff;
+}
+
+.alojamiento-card input[type="radio"]:checked + label .precio-badge .precio-detalle {
+    color: var(--violeta-claro);
+    font-weight: 700;
+}
+
+/* SECCIÓN: SERVICIOS (COMIDAS Y EQUIPAJES) */
+
+.servicio-box {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 25px;
+    background: white;
+    height: 100%;
+}
+
+.servicio-box h5 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--violeta-oscuro);
+}
+
+.servicio-item input[type="radio"] {
+    display: none;
+}
+
+.servicio-item label {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.servicio-item label:hover {
+    background-color: #f8f9fa;
+}
+
+.servicio-item input[type="radio"]:checked + label {
+    background-color: #f4f1ff;
+}
+
+.servicio-item .radio-custom {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 15px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.servicio-item input[type="radio"]:checked + label .radio-custom {
+    border-color: var(--violeta-claro);
+}
+
+.servicio-item input[type="radio"]:checked + label .radio-custom::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: var(--violeta-claro);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.servicio-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.servicio-title {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.servicio-price {
+    font-size: 0.85rem;
+    color: var(--violeta-claro);
+    text-align: right;
+    font-weight: 700;
+}
+
+.servicio-price small {
+    font-size: 0.7rem;
+    color: #888;
+}
+
+/* SECCIÓN: RESUMEN GENERAL */
+.resumen-box {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 30px;
+    background: white;
+    height: 100%;
+}
+
+.resumen-box h5 {
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--violeta-oscuro);
+}
+
+.resumen-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    font-size: 0.95rem;
+}
+
+.resumen-label {
+    font-weight: 600;
+    color: var(--violeta-oscuro);
+    width: 45%;
+}
+
+.resumen-value {
+    color: #555;
+    width: 55%;
+    text-align: right;
+}
+
+.resumen-divider {
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+.text-discount {
+    color: #28a745 !important;
+}
+
+.row-subtotal .resumen-label, .row-subtotal .resumen-value {
+    font-weight: 700;
+    color: var(--violeta-oscuro);
+}
+
+.row-total {
+    font-size: 1.25rem;
+    margin-top: 10px;
+}
+
+.row-total .resumen-label {
+    font-weight: 700;
+    color: var(--violeta-oscuro);
+}
+
+.row-total .resumen-value {
+    font-weight: 700;
+    color: var(--violeta-claro);
+}
+
+/* FORMULARIO PARA EDITAR SOLICITUDES*/
+.grid-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 15px;
+}
+
+.grid-form p {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .grid-form {
+        grid-template-columns: 1fr;
+    }
+}
