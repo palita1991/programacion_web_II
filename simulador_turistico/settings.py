@@ -26,7 +26,19 @@ SECRET_KEY = 'django-insecure-u5$y4e4^u%d+4c9t_b(_rp7b%+0iwtrzslaf#lncef+j5*ycfd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://simuladorturistico.onrender.com']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'simuladorturistico.onrender.com'
+]
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME and RENDER_EXTERNAL_HOSTNAME not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://simuladorturistico.onrender.com',
+]
 
 
 # Application definition
