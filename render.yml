@@ -2,8 +2,13 @@ services
   - type: web
     name: simuladorTuristico
     env: python
-    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+    buildCommand: |
+      pip install -r requirements.txt && 
+      python manage.py migrate && 
+      python manage.py collectstatic --noinput
     startCommand: "gunicorn simulador_turistico.wsgi:application"
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: simulador_turistico.settings
+      - key: DATABASE_URL
+        value: postgresql://travelzen_db_act4_user:Oj0eiwSCWeZoQ0jvM8q2sA5nODdcAmLb@dpg-dbvsaj2jnfac7389jqug-a.virginia-postgres.render.com/travelzen_db_act4
