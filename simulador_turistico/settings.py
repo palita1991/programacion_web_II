@@ -140,14 +140,22 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'c2280296.ferozo.com'
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
-EMAIL_USE_TLS = False
-EMAIL_HOST_USER = 'mpalavecino@proyectoweb.website'
-EMAIL_HOST_PASSWORD = 'Mariano2026@'
-EMAIL_TIMEOUT = 10
+if 'RENDER' in os.environ:
+    # Render -> Mailtrap Sandbox
+    EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+    EMAIL_PORT = 2525
+    EMAIL_USE_TLS = True
+    EMAIL_USE_SSL = False
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+else:
+    # Local -> Ferozo
+    EMAIL_HOST = 'c2280296.ferozo.com'
+    EMAIL_PORT = 465
+    EMAIL_USE_SSL = True
+    EMAIL_USE_TLS = False
+    EMAIL_HOST_USER = 'mpalavecino@proyectoweb.website'
+    EMAIL_HOST_PASSWORD = 'Mariano2026@'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'panel'
